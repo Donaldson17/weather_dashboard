@@ -1,4 +1,5 @@
-const API_KEY = '23c37161d363f3662704bb7d05a0a0b5';
+const API_KEY = "23c37161d363f3662704bb7d05a0a0b5";
+
 const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
 const weatherIcons = {
