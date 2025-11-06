@@ -4,17 +4,20 @@ A simple weather app that displays current weather information for any city.
 
 ## Features
 
-- Search weather by city name
-- Shows temperature in Celsius
-- Displays weather description
-- Clean, responsive design
+- 🔍 Search weather by city name
+- 🌡️ Shows temperature in Celsius
+- 🎨 Weather icons and dynamic backgrounds
+- 📦 Saves recent cities (localStorage)
+- 📱 Mobile responsive design
+- ⚡ Press Enter to search
 
 ## How to Use
 
 1. Open `index.html` in your browser
 2. Enter a city name (e.g., "London", "Paris", "Tokyo")
 3. Click Search or press Enter
-4. View current weather data
+4. View weather with icons and dynamic background
+5. Click recent cities for quick access
 
 ## Setup
 
