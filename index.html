@@ -4,23 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Weather Dashboard</h1>
-        <div class="search">
-            <input type="text" id="cityInput" placeholder="Enter city name">
-            <button onclick="getWeather()">Search</button>
+        <header>
+            <h1>Weather Dashboard</h1>
+            <p class="subtitle">Get real-time weather information</p>
+        </header>
+        
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="Search for a city...">
+                <button onclick="getWeather()" id="searchBtn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21L16.514 16.506M19 10.5C19 15.194 15.194 19 10.5 19S2 15.194 2 10.5 5.806 2 10.5 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="loading" id="loading">🌀 Loading...</div>
         </div>
+        
         <div class="recent-cities" id="recentCities"></div>
-        <div class="weather" id="weather">
-            <div class="city" id="city"></div>
-            <div class="weather-icon" id="weatherIcon"></div>
-            <div class="temp" id="temp"></div>
-            <div class="desc" id="desc"></div>
+        
+        <div class="weather-card" id="weather">
+            <div class="weather-header">
+                <div class="location-info">
+                    <div class="city" id="city"></div>
+                    <div class="time" id="localTime"></div>
+                </div>
+                <div class="weather-icon animated" id="weatherIcon"></div>
+            </div>
+            
+            <div class="weather-main">
+                <div class="temp-section">
+                    <div class="temp" id="temp"></div>
+                    <div class="feels-like" id="feelsLike"></div>
+                </div>
+                <div class="desc" id="desc"></div>
+            </div>
+            
+            <div class="weather-details">
+                <div class="detail-item">
+                    <span class="icon">💧</span>
+                    <span class="label">Humidity</span>
+                    <div class="progress-bar">
+                        <div class="progress" id="humidityBar"></div>
+                    </div>
+                    <span class="value" id="humidity"></span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="icon">💨</span>
+                    <span class="label">Wind</span>
+                    <span class="value" id="wind"></span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="icon">👁️</span>
+                    <span class="label">Visibility</span>
+                    <span class="value" id="visibility"></span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="icon">🌅</span>
+                    <span class="label">Sunrise</span>
+                    <span class="value" id="sunrise"></span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="icon">🌇</span>
+                    <span class="label">Sunset</span>
+                    <span class="value" id="sunset"></span>
+                </div>
+                
+                <div class="detail-item">
+                    <span class="icon">🌡️</span>
+                    <span class="label">Pressure</span>
+                    <span class="value" id="pressure"></span>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="location-btn" onclick="getCurrentLocation()" title="Get Current Location">📍 Location</button>
+                <button class="unit-toggle" onclick="toggleUnit()" id="unitToggle" title="Toggle Temperature Unit">°F</button>
+                <button class="action-btn share-btn" onclick="shareWeather()" title="Share Weather">📤 Share</button>
+                <button class="action-btn favorite-btn" onclick="toggleFavorite()" id="favoriteBtn" title="Add to Favorites">⭐ Favorite</button>
+            </div>
+            
+            <div class="forecast-section">
+                <h3>5-Day Forecast</h3>
+                <div class="forecast-container" id="forecast"></div>
+            </div>
         </div>
     </div>
+    
+    <div class="weather-particles" id="particles"></div>
+    
     <script src="script.js"></script>
 </body>
 </html>
