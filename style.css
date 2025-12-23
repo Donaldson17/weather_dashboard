@@ -48,6 +48,27 @@ header {
     position: relative;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logo-icon {
+    font-size: 3rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.logo-text {
+    text-align: left;
+}
+
 h1 {
     color: #2d3748;
     font-size: 2rem;
@@ -388,6 +409,19 @@ button:hover {
         padding: 2rem;
         margin: 0.5rem;
         max-width: 100%;
+    }
+    
+    .logo {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .logo-text {
+        text-align: center;
+    }
+    
+    .logo-icon {
+        font-size: 2.5rem;
     }
     
     .controls {
